@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/auth"
+const BASE_URL = "https://prompt-project-backend.onrender.com/auth"
 
 // 📝 Registrar nuevo usuario
 export const registerApi = async (name, email, password) => {

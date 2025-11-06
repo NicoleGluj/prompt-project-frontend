@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/tasks"
+const BASE_URL = "https://prompt-project-backend.onrender.com/tasks"
 
 // 👉 Helper para obtener headers con token de autenticación
 export const getAuthHeaders = () => {
