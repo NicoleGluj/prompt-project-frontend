@@ -1,4 +1,4 @@
-const BASE_URL = "https://prompt-project-backend.onrender.com/auth"
+const BASE_URL = import.meta.env.VITE_API_AUTH;
 
 // 📝 Registrar nuevo usuario
 export const registerApi = async (name, email, password) => {

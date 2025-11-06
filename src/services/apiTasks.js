@@ -1,4 +1,4 @@
-const BASE_URL = "https://prompt-project-backend.onrender.com/tasks"
+const BASE_URL = import.meta.env.VITE_API_TASKS;
 
 // 👉 Helper para obtener headers con token de autenticación
 export const getAuthHeaders = () => {
