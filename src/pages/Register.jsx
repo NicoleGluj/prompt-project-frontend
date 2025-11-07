@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Layout } from "../layout/Layout"
 import { useAuth } from "../context/AuthContext"
-import { loginApi, registerApi } from "../services/uth"
+import { loginApi, registerApi } from "../../src/services/apiAuth"
 
 export const Register = () => {
   const navigate = useNavigate()
