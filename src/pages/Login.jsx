@@ -49,37 +49,28 @@ export const Login = () => {
   return (
     <Layout>
       <Helmet>
-        {/* 🧭 Título y descripción */}
         <title>Iniciar sesión | TaskVoice</title>
         <meta
           name="description"
           content="Accedé a tu cuenta para administrar tus tareas por voz y organizar tu día de forma eficiente."
         />
-
-        {/* 📱 Meta responsive */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* 🧭 Indexación (puedes marcarla como noindex si no quieres que aparezca en Google) */}
         <meta name="robots" content="noindex, nofollow" />
-
-        {/* 🌐 Open Graph para redes sociales */}
         <meta property="og:title" content="Iniciar sesión | TaskVoice" />
         <meta
           property="og:description"
           content="Accedé a tu cuenta para administrar tus tareas por voz y organizar tu día."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tusitio.com/login" />
-        <meta property="og:image" content="https://tusitio.com/preview-login.png" />
-
-        {/* 🐦 Twitter Card */}
+        <meta property="og:url" content="https://voicetasks.vercel.app/login" />
+        <meta property="og:image" content="https://voicetasks.vercel.app/preview-login.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Iniciar sesión | TaskVoice" />
         <meta
           name="twitter:description"
           content="Accedé a tu cuenta para administrar tus tareas por voz y organizar tu día."
         />
-        <meta name="twitter:image" content="https://tusitio.com/preview-login.png" />
+        <meta name="twitter:image" content="https://voicetasks.vercel.app/preview-login.png" />
       </Helmet>
 
       <div className="flex items-center justify-center min-h-[70vh] p-4">

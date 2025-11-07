@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Layout } from "../layout/Layout"
 import { useAuth } from "../context/AuthContext"
 import { loginApi, registerApi } from "../services/apiAuth.js"
+import { Helmet } from "react-helmet"
 
 export const Register = () => {
   const navigate = useNavigate()
@@ -68,6 +69,30 @@ export const Register = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Registrarse | TaskVoice</title>
+        <meta
+          name="description"
+          content="Crea tu cuenta en TaskVoice y empezá a organizar tus tareas usando tu voz. Rápido, intuitivo y accesible desde cualquier dispositivo."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="Registrate en TaskVoice" />
+        <meta
+          property="og:description"
+          content="Unite a TaskVoice y descubrí una nueva forma de gestionar tus tareas mediante comandos de voz."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://voicetasks.vercel.app/register" />
+        <meta property="og:image" content="https://voicetasks.vercel.app/preview-register.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Registrate en TaskVoice" />
+        <meta
+          name="twitter:description"
+          content="Crea tu cuenta en TaskVoice y empezá a organizar tus tareas con la voz."
+        />
+        <meta name="twitter:image" content="https://voicetasks.vercel.app/preview-register.png" />
+      </Helmet>
       <div className="flex items-center justify-center min-h-[70vh] p-4">
         <div className="h-full w-full bg-gray-100/20 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-80 border-3 border-white/80 max-w-sm p-8 rounded-2xl shadow-lg">
           <div>

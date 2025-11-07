@@ -1,12 +1,38 @@
 import { Link } from "react-router-dom";
 import { Layout } from "../layout/Layout";
 import { useAuth } from "../context/AuthContext";
+import { Helmet } from "react-helmet";
 
 export const Home = () => {
   const { user } = useAuth()
 
   return (
     <Layout>
+      <Helmet>
+        <title>TaskVoice | Organizá tus tareas con la voz</title>
+        <meta
+          name="description"
+          content="TaskVoice te ayuda a crear, recordar y administrar tus tareas mediante comandos de voz. Organizá tu día de forma simple y moderna."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="TaskVoice | Organiza tus tareas con la voz" />
+        <meta
+          property="og:description"
+          content="Descubrí una nueva forma de recordar tus pendientes. Creá, marcá y administrá tareas con tu voz desde cualquier dispositivo."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://voicetasks.vercel.app/" />
+        <meta property="og:image" content="https://voicetasks.vercel.app/preview-home.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TaskVoice | Organiza tus tareas con la voz" />
+        <meta
+          name="twitter:description"
+          content="Creá y administrá tus tareas con la voz y mantené tu día organizado fácilmente."
+        />
+        <meta name="twitter:image" content="https://voicetasks.vercel.app/preview-home.png" />
+      </Helmet>
+
       <section className="flex flex-col items-start justify-end min-h-[75vh] xl:p-6 p-4">
         <h1 className="w-full sm:w-3/4 lg:w-1/2 text-5xl sm:text-7xl 2xl:text-8xl font-[Alexandria] font-extralight text-white">
           Conoce una nueva forma de recordar tus tareas
