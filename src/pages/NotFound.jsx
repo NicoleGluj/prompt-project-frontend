@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { Layout } from "../layout/Layout";
 
 export const NotFound = () => {
@@ -11,7 +12,7 @@ export const NotFound = () => {
           La página que buscás no existe o fue movida.
         </p>
         <button
-          onClick={() => navigate("/")}
+          onClick={() => Navigate("/")}
           className="mt-8 px-6 py-2 rounded-2xl bg-[#eb831be7] text-white uppercase font-medium border-2 border-white/70 hover:bg-[#ff9933] transition-all duration-300"
         >
           Volver al inicio
