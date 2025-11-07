@@ -82,7 +82,7 @@ export const Login = () => {
         <meta name="twitter:image" content="https://tusitio.com/preview-login.png" />
       </Helmet>
 
-      <div className="flex items-center justify-center min-h-[70vh]">
+      <div className="flex items-center justify-center min-h-[70vh] p-4">
         <div className="h-full w-full bg-gray-100/20 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-80 border-3 border-white/80 max-w-sm p-8 rounded-2xl shadow-lg">
           <div>
             <h1 className="text-2xl uppercase font-semibold text-center text-white">
@@ -127,7 +127,7 @@ export const Login = () => {
             <p className="mt-4 text-[#e74d0b] font-semibold text-center">{error}</p>
           )}
           {success && (
-            <p className="mt-4 text-[#97d81f] font-semibold text-center">
+            <p className="mt-4 text-[#649705] font-semibold text-center">
               Acceso concedido. Redirigiendo...
             </p>
           )}

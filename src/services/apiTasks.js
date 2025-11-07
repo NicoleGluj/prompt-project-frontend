@@ -36,7 +36,6 @@ export const removeTaskApi = async (id) => {
   return true
 }
 
-// 🔄 Actualizar tarea (toggle o edición)
 export const toggleTaskApi = async (id, completed) => {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "PUT",

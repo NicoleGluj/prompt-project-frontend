@@ -8,7 +8,7 @@ export const TaskList = ({ tasks, onDelete, onToggle }) => {
   const sortedTasks = [...pendingTasks, ...completedTasks];
 
   return (
-    <section className="m-4 sm:m-4 xs:m-2 mt-14">
+    <section className="m-1 sm:m-4 xs:m-2 mt-14">
       <h1 className="text-3xl sm:text-3xl xs:text-2xl font-light text-white uppercase mt-8 mb-5">
         Tus pendientes
       </h1>

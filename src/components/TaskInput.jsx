@@ -51,7 +51,7 @@ export const TaskInput = ({ onAdd }) => {
   }
 
   return (
-    <section className="mt-4 flex justify-center px-2">
+    <section className="mt-4 flex justify-center px-2 mb-14">
       <div className="flex w-full max-w-2xl bg-white/90 rounded-2xl p-2 items-center shadow-md">
         <button
           onClick={handleToggle}

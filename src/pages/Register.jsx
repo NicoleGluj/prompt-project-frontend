@@ -64,7 +64,7 @@ export const Register = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-center min-h-[70vh]">
+      <div className="flex items-center justify-center min-h-[70vh] p-4">
         <div className="h-full w-full bg-gray-100/20 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-80 border-3 border-white/80 max-w-sm p-8 rounded-2xl shadow-lg">
           <div>
             <h1 className="text-2xl uppercase font-semibold text-center text-white">
@@ -111,12 +111,11 @@ export const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`group relative inline-flex py-2 w-full font-medium items-center justify-center overflow-hidden rounded-2xl ${loading ? "opacity-60 cursor-not-allowed" : "bg-[#eb831be7]"
-                }`}>
+              className="group relative inline-flex py-2 w-full font-medium items-center justify-center overflow-hidden rounded-2xl bg-[#eb831be7] text-white uppercase border-2 border-white/70">
               <span>
-                {loading ? "Creando cuenta..." : "Registrarse"}
+                {loading ? "Creando cuenta..." : "Registarse"}
               </span>
-              <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:[transform:skew(-12deg)_translateX(100%)]"><div class="relative h-full w-8 bg-white/20"></div></div></button>
+              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:[transform:skew(-12deg)_translateX(100%)]"><div className="relative h-full w-8 bg-white/20"></div></div></button>
             <p className="mt-2 text-center font-medium text-white/90 text-sm">
               ¿Ya tienes una cuenta? <Link to="/login" className="font-bold"> Iniciar sesion </Link>
             </p>
@@ -134,13 +133,13 @@ export const Register = () => {
           {success && (
             <p
               data-testid="success-message"
-              className="mt-4 text-[#97d81f] font-semibold text-center"
+              className="mt-4 text-[#649705]  font-semibold text-center"
             >
               Acceso concedido. Redirigiendo...
             </p>
           )}
         </div>
       </div>
-    </Layout>
+    </Layout >
   )
 }
