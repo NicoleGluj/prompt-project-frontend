@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Layout } from "../layout/Layout"
 import { useAuth } from "../context/AuthContext"
 import { Helmet } from "react-helmet";
-import { loginApi } from "../services/ApiAuth";
+import { loginApi } from "../services/apiAuth";
 
 
 export const Login = () => {
