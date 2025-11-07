@@ -13,7 +13,7 @@ export const Home = () => {
           className="group relative inline-flex items-center justify-center border-2 border-white text-white px-8 py-2 rounded-2xl mt-8 font-medium uppercase text-lg sm:text-base overflow-hidden"
         >
           <span className="z-10">Comenzar</span>
-          <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-[1500ms] group-hover:[transform:skew(-12deg)_translateX(100%)] transition-transform ease-in-out">
+          <div className="absolute inset-0 flex h-full w-full justify-center transform-[skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:transform-[skew(-12deg)_translateX(100%)] transition-transform ease-in-out">
             <div className="relative h-full w-8 bg-white/20"></div>
           </div>
         </Link>

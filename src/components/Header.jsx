@@ -7,6 +7,11 @@ export const Header = () => {
   const { user, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  }
+
   return (
     <header className="m-4 p-2 flex justify-between items-center z-10 border-b border-white/40 sm:m-4 sm:p-2 xs:m-2 xs:p-1 relative">
       <div className="flex items-center gap-2 sm:gap-2 xs:gap-1 text-white">
@@ -42,12 +47,12 @@ export const Header = () => {
             >
               Mis tareas
             </Link>
-            <button
-              onClick={logout}
-              className="border-2 px-5 py-1 rounded-2xl flex items-center transition-transform duration-200 transform hover:scale-105 uppercase text-sm"
+            <Link
+              onClick={handleLogout}
+              className="border-2 px-5 py-1 rounded-2xl flex items-center justify-center transition-transform duration-200 transform hover:scale-105 uppercase text-sm cursor-pointer"
             >
-              Cerrar Sesión
-            </button>
+              Cerrar sesión
+            </Link>
           </>
         )}
       </nav>
@@ -65,17 +70,30 @@ export const Header = () => {
         <div className="absolute top-full right-4 mt-2 bg-white/10 backdrop-blur-md rounded-lg p-4 flex flex-col gap-3 text-white z-20 sm:hidden min-w-[150px]">
           {!user && (
             <>
-              <Link to="/login" onClick={() => setMenuOpen(false)}>
+              <Link
+                to="/login"
+                onClick={() => setMenuOpen(false)}
+                className="block text-start px-3 py-2 rounded-md hover:bg-white/20 transition-colors duration-200"
+              >
                 Ingresar
               </Link>
-              <Link to="/register" onClick={() => setMenuOpen(false)}>
+              <Link
+                to="/register"
+                onClick={() => setMenuOpen(false)}
+                className="block text-start px-3 py-2 rounded-md hover:bg-white/20 transition-colors duration-200"
+              >
                 Registrar
               </Link>
             </>
           )}
+
           {user && (
             <>
-              <Link to="/mistareas" onClick={() => setMenuOpen(false)}>
+              <Link
+                to="/mistareas"
+                onClick={() => setMenuOpen(false)}
+                className="block text-start px-3 py-2 rounded-md hover:bg-white/20 transition-colors duration-200"
+              >
                 Mis tareas
               </Link>
               <button
@@ -83,13 +101,15 @@ export const Header = () => {
                   logout();
                   setMenuOpen(false);
                 }}
+                className="block text-start px-3 py-2 rounded-md hover:bg-white/20 transition-colors duration-200"
               >
-                Cerrar Sesión
+                Cerrar sesión
               </button>
             </>
           )}
         </div>
       )}
+
     </header>
   );
 };

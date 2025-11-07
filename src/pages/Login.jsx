@@ -117,7 +117,7 @@ export const Login = () => {
               <span>
                 {loading ? "Ingresando..." : "Entrar"}
               </span>
-              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:[transform:skew(-12deg)_translateX(100%)]"><div className="relative h-full w-8 bg-white/20"></div></div></button>
+              <div className="absolute inset-0 flex h-full w-full justify-center transform-[skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:transform-[skew(-12deg)_translateX(100%)] transition-transform ease-in-out"><div className="relative h-full w-8 bg-white/20"></div></div></button>
             <p className="mt-2 text-center font-medium text-white/90 text-sm">
               ¿No tienes una cuenta? <Link to="/register" className="font-bold"> Registrate </Link>
             </p>
