@@ -27,7 +27,7 @@ export const Register = () => {
       setError("Todos los campos son obligatorios")
       return
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!emailRegex.test(email)) {
       setError("El correo electrónico no es válido")
       return
