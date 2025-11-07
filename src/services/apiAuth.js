@@ -1,17 +1,22 @@
 const BASE_URL = import.meta.env.VITE_API_AUTH
 
-const handleResponse = async (res, defaultMessage) => {
-  if (!res.ok) {
-    const errorText = await res.text()
-    throw new Error(errorText || defaultMessage)
+export const handleResponse = async (res, defaultMessage) => {
+  let data;
+
+  try {
+    data = await res.json();
+  } catch {
+    data = await res.text();
   }
 
-  const contentType = res.headers.get("content-type")
-  if (contentType && contentType.includes("application/json")) {
-    return await res.json()
+  if (!res.ok) {
+    const backendMessage =
+      typeof data === "object" && data?.message ? data.message : data || defaultMessage;
+    throw new Error(backendMessage);
   }
-  return await res.text()
-}
+
+  return data;
+};
 
 export const registerApi = async (name, email, password) => {
   try {
