@@ -18,19 +18,34 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (loading) return
     setError("")
-    setLoading(true)
+    setSuccess("")
 
+    if (!email.trim() || !password.trim()) {
+      setError("Por favor completá todos los campos")
+      return
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      setError("Correo electrónico inválido")
+      return
+    }
+
+    setLoading(true)
     try {
-      const data = await loginApi(email, password) // { token }
-      login({ name: data.name, email, token: data.token })// guardar en contexto
-      navigate("/mistareas")
+      const data = await loginApi(email, password)
+      login({ name: data.name, email, token: data.token })
+      setSuccess("Acceso concedido. Redirigiendo...")
+      setTimeout(() => navigate("/mistareas"), 1000)
     } catch (err) {
-      setError(err.message)
+      console.error("Error en login:", err)
+      setError(err.message || "Error al iniciar sesión. Intentá nuevamente.")
     } finally {
       setLoading(false)
     }
   }
+
   return (
     <Layout>
       <Helmet>
@@ -98,11 +113,11 @@ export const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              class="group relative inline-flex py-2 w-full font-medium items-center justify-center overflow-hidden rounded-2xl bg-[#eb831be7] text-white uppercase border-2 border-white/70">
+              className="group relative inline-flex py-2 w-full font-medium items-center justify-center overflow-hidden rounded-2xl bg-[#eb831be7] text-white uppercase border-2 border-white/70">
               <span>
                 {loading ? "Ingresando..." : "Entrar"}
               </span>
-              <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:[transform:skew(-12deg)_translateX(100%)]"><div class="relative h-full w-8 bg-white/20"></div></div></button>
+              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1500 group-hover:[transform:skew(-12deg)_translateX(100%)]"><div className="relative h-full w-8 bg-white/20"></div></div></button>
             <p className="mt-2 text-center font-medium text-white/90 text-sm">
               ¿No tienes una cuenta? <Link to="/register" className="font-bold"> Registrate </Link>
             </p>

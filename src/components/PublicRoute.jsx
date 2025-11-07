@@ -5,11 +5,15 @@ export const PublicRoute = ({ children }) => {
   const { user, loading } = useAuth()
 
   if (loading) {
-    return <div>Cargando...</div>
+    return (
+      <div className="flex justify-center items-center min-h-screen text-white text-lg">
+        Cargando...
+      </div>
+    )
   }
 
   if (user) {
-    return <Navigate to="/" />
+    return <Navigate to="/mistareas" replace />
   }
 
   return children

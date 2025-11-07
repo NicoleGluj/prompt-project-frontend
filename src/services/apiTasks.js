@@ -1,6 +1,5 @@
 const BASE_URL = import.meta.env.VITE_API_TASKS;
 
-// 👉 Helper para obtener headers con token de autenticación
 export const getAuthHeaders = () => {
   const token = localStorage.getItem("authToken")
   if (!token) throw new Error("No hay token de autenticación")
@@ -10,7 +9,6 @@ export const getAuthHeaders = () => {
   }
 }
 
-// 📥 Obtener todas las tareas
 export const fetchTasksApi = async () => {
   const res = await fetch(BASE_URL, {
     headers: getAuthHeaders(),
@@ -19,7 +17,6 @@ export const fetchTasksApi = async () => {
   return await res.json()
 }
 
-// ➕ Crear nueva tarea (sin validación, ya se hace en el componente)
 export const addTaskApi = async (text) => {
   const res = await fetch(BASE_URL, {
     method: "POST",
@@ -30,7 +27,6 @@ export const addTaskApi = async (text) => {
   return await res.json()
 }
 
-// ❌ Eliminar tarea
 export const removeTaskApi = async (id) => {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "DELETE",

@@ -18,32 +18,49 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError("")
+    if (loading) return
 
+    setError("")
+    setSuccess("")
+
+    if (!name.trim() || !email.trim() || !password.trim()) {
+      setError("Todos los campos son obligatorios")
+      return
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      setError("El correo electrónico no es válido")
+      return
+    }
+    if (password.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres")
+      return
+    }
     if (password !== confirmPassword) {
       setError("Las contraseñas no coinciden")
+      return
+    }
+    if (!navigator.onLine) {
+      setError("Sin conexión a Internet. Verificá tu red.")
       return
     }
 
     setLoading(true)
     try {
-      // 1. Registrar usuario
-      const resRegister = await registerApi(name, email, password)
-      console.log(resRegister)
-
-      // 2. Login automático tras registro
-      const data = await loginApi(email, password) // { token }
+      await registerApi(name, email, password)
+      const data = await loginApi(email, password)
       login({ name, email, token: data.token })
-
-      // 3. Redirigir a tareas
-      navigate("/")
+      setSuccess("Acceso concedido. Redirigiendo...")
+      setTimeout(() => navigate("/mistareas"), 1200)
     } catch (err) {
-      setError(err.message)
+      console.error("Error en registro:", err)
+      setError(err.message || "Error inesperado al registrarte")
+      setPassword("")
+      setConfirmPassword("")
     } finally {
       setLoading(false)
     }
   }
-
 
   return (
     <Layout>
@@ -94,7 +111,8 @@ export const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              class="group relative inline-flex py-2 w-full font-medium items-center justify-center overflow-hidden rounded-2xl bg-[#eb831be7] text-white uppercase border-2 border-white/70">
+              className={`group relative inline-flex py-2 w-full font-medium items-center justify-center overflow-hidden rounded-2xl ${loading ? "opacity-60 cursor-not-allowed" : "bg-[#eb831be7]"
+                }`}>
               <span>
                 {loading ? "Creando cuenta..." : "Registrarse"}
               </span>

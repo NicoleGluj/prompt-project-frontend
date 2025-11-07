@@ -8,31 +8,40 @@ import {
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  // 🚀 Traemos las tasks del backend al montar el componente
   useEffect(() => {
     const loadTasks = async () => {
       try {
+        setLoading(true)
         const data = await fetchTasksApi()
         setTasks(data)
-      } catch (error) {
-        console.error("Error al cargar tareas:", error)
+      } catch (err) {
+        console.error("Error al cargar tareas:", err)
+        setError("No se pudieron cargar las tareas")
+      } finally {
+        setLoading(false)
       }
     }
     loadTasks()
   }, [])
 
-  // ➕ Crear una nueva tarea
   const addTask = async (text) => {
+    if (!text.trim()) return
+    const tempId = Date.now().toString()
+    const tempTask = { _id: tempId, text, completed: false }
+
+    setTasks(prev => [...prev, tempTask]) // muestra inmediatamente
     try {
       const newTask = await addTaskApi(text)
-      setTasks([...tasks, newTask])
+      setTasks(prev => prev.map(t => t._id === tempId ? newTask : t))
     } catch (error) {
       console.error("Error en addTask:", error)
+      setTasks(prev => prev.filter(t => t._id !== tempId)) // revertir si falla
     }
   }
 
-  // ❌ Eliminar tarea
   const removeTask = async (id) => {
     try {
       await removeTaskApi(id)
@@ -42,7 +51,6 @@ export const useTasks = () => {
     }
   }
 
-  // 🔄 Alternar estado de completado
   const toggleTask = async (id) => {
     try {
       // Buscar usando _id
@@ -57,6 +65,5 @@ export const useTasks = () => {
     }
   }
 
-
-  return { tasks, addTask, removeTask, toggleTask }
+  return { tasks, addTask, removeTask, toggleTask, loading, error }
 }

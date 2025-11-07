@@ -12,8 +12,8 @@ export const RouterApp = () => (
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
 
-      {/* Rutas protegidas */}
       <Route
         path="/mistareas"
         element={
@@ -22,8 +22,6 @@ export const RouterApp = () => (
           </PrivateRoute>
         }
       />
-
-      <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
 )
