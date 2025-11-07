@@ -28,7 +28,7 @@ export const registerApi = async (name, email, password) => {
     return await handleResponse(res, "Error en el registro")
   } catch (err) {
     console.error("Error en registerApi:", err)
-    throw new Error("No se pudo registrar el usuario. Verificá tu conexión o los datos.")
+    throw new Error(err.message);
   }
 }
 
@@ -50,6 +50,6 @@ export const loginApi = async (email, password) => {
     return data
   } catch (err) {
     console.error("Error en loginApi:", err)
-    throw new Error("No se pudo iniciar sesión. Revisá tu conexión o tus credenciales.")
+    throw new Error(err.message);
   }
 }
