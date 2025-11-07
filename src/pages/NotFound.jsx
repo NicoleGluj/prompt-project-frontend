@@ -2,6 +2,8 @@ import { Navigate } from "react-router-dom";
 import { Layout } from "../layout/Layout";
 
 export const NotFound = () => {
+  const navigate = useNavigate()
+
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-[80vh] text-center">
@@ -12,7 +14,7 @@ export const NotFound = () => {
           La página que buscás no existe o fue movida.
         </p>
         <button
-          onClick={() => Navigate("/")}
+          onClick={() => navigate("/")}
           className="mt-8 px-6 py-2 rounded-2xl bg-[#eb831be7] text-white uppercase font-medium border-2 border-white/70 hover:bg-[#ff9933] transition-all duration-300"
         >
           Volver al inicio
