@@ -4,7 +4,7 @@ import {
   addTaskApi,
   removeTaskApi,
   toggleTaskApi,
-} from "../services/apiTasks"
+} from "../services/apiTasks.js"
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState([])

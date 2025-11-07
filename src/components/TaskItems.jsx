@@ -1,4 +1,4 @@
-import { formatDate } from "../utils/FormatDate";
+import { formatDate } from "../utils/formatDate.js";
 
 export const TaskItem = ({ task, onDelete, onToggle }) => (
   <li
